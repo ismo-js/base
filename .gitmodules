@@ -4,3 +4,6 @@
 [submodule "ismo"]
 	path = var/ismo
 	url = https://github.com/ismo-js/ismo.git
+[submodule "repo"]
+	path = var/repo
+	url = https://github.com/n-lang/.gitignore
