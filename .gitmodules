@@ -1,0 +1,12 @@
+[submodule "sturm"]
+	path = var/sturm
+	url = https://github.com/ismo-js/sturm.git
+[submodule "ismo"]
+	path = var/ismo
+	url = https://github.com/ismo-js/ismo.git
+[submodule "law"]
+	path = doc/law
+	url = https://github.com/ismo-js/law.git
+[submodule ".cfg"]
+	path = .cfg
+	url = https://github.com/n-lang/.gitignore

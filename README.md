@@ -1,2 +1,1 @@
-# ᴘacᴋer
-:wrench: Configuring ısmo, sтorm … 
+doc/index.md
