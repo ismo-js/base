@@ -14,16 +14,20 @@ async function getSubdirs(dir) {
     fs.readdir(dir, (err, files)=> !err ? rsv(files) : rjc(err))
   )
   const stats = await asc.map(subfiles, fs.stat)
-  return subfiles.filter((e, i)=> stats[i].isDirectory())
+  const subdirs = subfiles.filter((e, i)=> stats[i].isDirectory())
+  return subdirs
 }
 
 export default async function pack(cwd) {
   const subsPath = p.join(cwd, "subs")
   const subsDirs = await getSubdirs(subsPath)
 
-  //const curOpts = O.assign({cwd}, opts)
-  await g
-    .src("subs/*/package.yaml", curOpts)
-    .pipe()
+  const tasks = subsDirs.map(e=> {
+    //const curOpts = O.assign({cwd}, opts)
+    return g
+      .src("subs/*/package.yaml", curOpts)
+      .pipe()
     .dest("package.json", curOpts)
+  })
+  g.parallel(tasks)
 }
