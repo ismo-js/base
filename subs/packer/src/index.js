@@ -2,6 +2,7 @@ import * as p from "path"
 import * as fs from "fs"
 import * as asc from "async"
 import g from "gulp"
+import Sub from "./sub"
 
 const O = Object
 
@@ -22,12 +23,6 @@ export default async function pack(cwd) {
   const subsPath = p.join(cwd, "subs")
   const subsDirs = await getSubdirs(subsPath)
 
-  const tasks = subsDirs.map(e=> {
-    //const curOpts = O.assign({cwd}, opts)
-    return g
-      .src("subs/*/package.yaml", curOpts)
-      .pipe()
-    .dest("package.json", curOpts)
-  })
-  g.parallel(tasks)
+  const tasks = subsDirs.map(e=> new Sub(e).pack)
+  await g.parallel(tasks)
 }
