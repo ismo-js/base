@@ -3,8 +3,7 @@ import * as fs from "fs"
 import * as asc from "async"
 import g from "gulp"
 import Sub from "./sub"
-
-const O = Object
+import a from "accessies"
 
 const opts = {
   follow: true, // follow symlinks

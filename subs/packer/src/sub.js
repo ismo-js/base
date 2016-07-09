@@ -1,4 +1,9 @@
 import g from "gulp"
+import a from "accessies"
+
+const opts = {
+  follow: true, // follow symlinks
+}
 
 export default class Sub {
   constructor(path) {
@@ -6,7 +11,7 @@ export default class Sub {
   }
 
   async pack() {
-    //TODO add cwd
+    const curOpts = a.g({cwd}, opts)
     //TODO copy all files etc
     await g
       .src("package.yaml", curOpts)
