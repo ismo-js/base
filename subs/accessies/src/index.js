@@ -1,4 +1,6 @@
-export default const a = {
+export default const ac = {
   O: Object,
-  g: Object.assign,
+  g: function (...a) {
+    Object.assign(this, ...a)
+  },
 }

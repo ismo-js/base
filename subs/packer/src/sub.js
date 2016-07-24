@@ -11,7 +11,7 @@ export default class Sub {
   }
 
   async pack() {
-    const curOpts = a.g({cwd}, opts)
+    const curOpts = {cwd}::a.g(opts)
     //TODO copy all files etc
     await g
       .src("package.yaml", curOpts)
